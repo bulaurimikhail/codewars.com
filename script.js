@@ -533,6 +533,4 @@ function studentMsg(totalScores, studentScore) {
 }
 */
 
-//
-
-// sync test from PC VS CODE
+//Моя первая проверка. Файл изменён на компьютере. 16:25
