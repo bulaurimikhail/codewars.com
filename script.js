@@ -485,15 +485,123 @@ console.log(summation(8));
 */
 
 //////////////////////////////////////////////////////////////////////
-//////////////////////////////11.09.2026//////////////////////////////
+//////////////////////////////14.09.2026//////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-//
+//Remove String Spaces - kata/57eae20f5500ad98e50002c5
+/*Description:
+Write a function that removes the spaces from the string, then return the resultant string.
+
+Examples (Input -> Output):
+
+"8 j 8   mBliB8g  imjB8B8  jl  B" -> "8j8mBliB8gimjB8B8jlB"
+"8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd" -> "88Bifk8hB8BB8BBBB888chl8BhBfd"
+"8aaaaa dddd r     " -> "8aaaaaddddr"
+*/
+/*function noSpace(x) {
+    return x = x.split(' ').join('');
+}
+let stringFirst = "8 j 8   mBliB8g  imjB8B8  jl  B";
+let stringSecond = "8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd";
+let stringThird = "8aaaaa dddd r     ";
+console.log(noSpace(stringFirst));
+console.log(noSpace(stringSecond));
+console.log(noSpace(stringThird));
+*/
+
+//Counting sheep... - kata/54edbc7200b811e956000556
+/*Description:
+Consider an array/list of sheep where some sheep may be missing from their place.
+We need a function that counts the number of sheep present in the array (true means present).
+
+For example,
+
+[true,  true,  true,  false,
+  true,  true,  true,  true ,
+  true,  false, true,  false,
+  true,  false, false, true ,
+  true,  true,  true,  true ,
+  false, false, true,  true]
+The correct answer would be 17.
+
+Hint: Don't forget to check for bad values like null/undefined
+*/
+/*function countSheeps(sheep) {
+    return sheep.reduce((acc, el) => acc + (el === true ? 1 : 0), 0);
+}
+const sheeps = [true, true, true, false,
+    true, true, true, true,
+    true, false, true, false,
+    true, false, false, true,
+    true, true, true, true,
+    false, false, true, true];
+console.log(countSheeps(sheeps));
+*/
+
+//Sum of two lowest positive integers - kata/558fc85d8fd1938afb000014
+/*Description:
+Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
+
+For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
+
+[10, 343445353, 3453445, 3453545353453] should return 3453455.
+*/
+/*function sumTwoSmallestNumbers(numbers) {
+    let numbersSorted = numbers.sort((a, b) => a - b);
+    console.log(numbersSorted);
+    return numbersSorted[0] + numbersSorted[1];
+}
+console.log(sumTwoSmallestNumbers([19, 5, 42, 2, 77]))
+*/
+
+//Beginner Series #3 Sum of Numbers - kata/55f2b110f61eb01779000053
+/*Description:
+Given two integers a and b, which can be positive or negative, find the sum of all the integers between and including them and return it. If the two numbers are equal return a or b.
+
+Note: a and b are not ordered!
+
+Examples (a, b) --> output (explanation)
+(1, 0) --> 1 (1 + 0 = 1)
+(1, 2) --> 3 (1 + 2 = 3)
+(0, 1) --> 1 (0 + 1 = 1)
+(1, 1) --> 1 (1 since both are same)
+(-1, 0) --> -1 (-1 + 0 = -1)
+(-1, 2) --> 2 (-1 + 0 + 1 + 2 = 2)
+Your function should only return a number, not the explanation about how you get that number.
+*/
+function getSum(a, b) {
+    let arr = [];
+    const start = Math.min(a, b);
+    const end = Math.max(a, b)
+    for (let i = start; i <= end; i++) {
+        arr.push(i)
+    }
+    return arr.reduce((acc, el) => acc += el)
+}
+console.log(getSum(3, 1))
 
 
-//////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //////////////////////////////////////////////////////////////////////
 ///////////Задачки от сайта freeCodeCamp - оценки студентов///////////
@@ -533,6 +641,3 @@ function studentMsg(totalScores, studentScore) {
 }
 */
 
-//Моя первая проверка. Файл изменён на компьютере. 16:25
-//Проверка нс планшете. Файл изменён 16:28
-//Отлично ёпта!
