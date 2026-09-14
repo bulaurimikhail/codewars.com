@@ -535,4 +535,4 @@ function studentMsg(totalScores, studentScore) {
 
 //
 
-// sync test from ACode
+// sync test from PC VS CODE
