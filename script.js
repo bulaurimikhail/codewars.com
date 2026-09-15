@@ -599,10 +599,26 @@ Output = []
 Input strings will only contain letters.
 Note: keep the original order of the names in the output.
 */
-function friend(friends) {
-
+/*function friend(friends) {
+    return friends.filter((name)=> name.length === 4)
 }
+*/
 
+//String ends with? - kata/51f2d1cafc9c0f745c00037d
+/*Description:
+Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
+
+Examples:
+
+Inputs: "abc", "bc"
+Output: true
+
+Inputs: "abc", "d"
+Output: false
+*/
+function solution(str, ending) {
+    // TODO: complete
+}
 
 
 
