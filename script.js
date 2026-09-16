@@ -716,7 +716,7 @@ Examples(Operator, value1, value2) --> output
 ('*', 5, 5) --> 25
 ('/', 49, 7) --> 7
 */
-function basicOp(operation, value1, value2) {
+/*function basicOp(operation, value1, value2) {
     let add = value1 + value2;
     let sub = value1 - value2;
     let mul = value1 * value2;
@@ -724,7 +724,9 @@ function basicOp(operation, value1, value2) {
     return operation === '+' ? add : operation === '-' ? sub : operation === '*' ? mul : div
 }
 console.log(basicOp('/', 49, 7))
+*/
 
+//
 
 
 
