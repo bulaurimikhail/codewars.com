@@ -604,6 +604,10 @@ Note: keep the original order of the names in the output.
 }
 */
 
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////15.09.2026//////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
 //String ends with? - kata/51f2d1cafc9c0f745c00037d
 /*Description:
 Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
@@ -616,13 +620,72 @@ Output: true
 Inputs: "abc", "d"
 Output: false
 */
-function solution(str, ending) {
-    // TODO: complete
+/*function solution(str, ending) {
+    return str.substring(str.length - ending.length) === ending;
 }
+console.log(solution('abc', 'bc'));
+console.log(solution('abc', 'd'))
+*/
 
+//Convert a String to a Number! - kata/544675c6f971f7399a000e79
+/*Description:
+Note: This kata is inspired by Convert a Number to a String!. Try that one too.
 
+Description
+We need a function that can transform a string into a number. What ways of achieving this do you know?
 
+Note: Don't worry, all inputs will be strings, and every string is a perfectly valid representation of an integral number.
 
+Examples
+"1234" --> 1234
+"605"  --> 605
+"1405" --> 1405
+"-7" --> -7
+*/
+/*const stringToNumber = function(str){
+  return Number(str);
+}
+*/
+
+//Two to One
+/*Description:
+Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string (alphabetical ascending), the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
+
+Examples:
+a = "xyaabbbccccdefww"
+b = "xxxxyyyyabklmopq"
+longest(a, b) -> "abcdefklmopqwxy"
+
+a = "abcdefghijklmnopqrstuvwxyz"
+longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
+*/
+/*function longest(s1, s2) {
+    return [...s1.split(''), ...s2.split('')].sort().filter((el, i, arr) => el !== arr[i - 1]).join('');
+}
+let a = "xyaabbbccccdefww";
+let b = "xxxxyyyyabklmopq";
+console.log(longest(a, b));
+*/
+
+//Categorize New Member - kata/5502c9e7b3216ec63c0001aa
+/*Description:
+The Western Suburbs Croquet Club has two categories of membership, Senior and Open. They would like your help with an application form that will tell prospective members which category they will be placed.
+
+To be a senior, a member must be at least 55 years old and have a handicap greater than 7. In this croquet club, handicaps range from -2 to +26; the better the player the lower the handicap.
+
+Input
+Input will consist of a list of pairs. Each pair contains information for a single potential member. Information consists of an integer for the person's age and an integer for the person's handicap.
+
+Output
+Output will consist of a list of string values (in Haskell and C: Open or Senior) stating whether the respective member is to be placed in the senior or open category.
+
+Example
+input =  [[18, 20], [45, 2], [61, 12], [37, 6], [21, 21], [78, 9]]
+output = ["Open", "Open", "Senior", "Open", "Open", "Senior"]
+*/
+function openOrSenior(data) {
+    // ...
+}
 
 
 
