@@ -605,7 +605,7 @@ Note: keep the original order of the names in the output.
 */
 
 //////////////////////////////////////////////////////////////////////
-//////////////////////////////15.09.2026//////////////////////////////
+//////////////////////////////16.09.2026//////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 //String ends with? - kata/51f2d1cafc9c0f745c00037d
@@ -758,12 +758,20 @@ Examples ( Input --> Output )
 625 --> 676
 114 --> -1  #  because 114 is not a perfect square
 */
-function findNextSquare(sq) {
-    // Return the next square if sq is a perfect square, -1 otherwise
-    return -1;
+/*function findNextSquare(sq) {
+    const root = Math.sqrt(sq);
+    if (root === Math.floor(root)) {
+        return (root + 1) * (root + 1)
+    } else {
+        return -1
+    }
 }
+console.log(findNextSquare(144));
+console.log(findNextSquare(121));
+console.log(findNextSquare(109));
+*/
 
-
+//
 
 
 
