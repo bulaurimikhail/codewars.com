@@ -771,15 +771,123 @@ console.log(findNextSquare(121));
 console.log(findNextSquare(109));
 */
 
-//
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////17.09.2026//////////////////////////////
+//////////////////////////////////////////////////////////////////////
 
+//Keep Hydrated! - kata/582cb0224e56e068d800003c
+/*Description:
+Nathan loves cycling.
 
+Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.
 
+You get given the time in hours and you need to return the number of litres Nathan will drink, rounded down.
 
+For example:
 
+time = 3 ----> litres = 1
 
+time = 6.7---> litres = 3
 
+time = 11.8--> litres = 5
+*/
+/*function litres(time) {
+    return Math.floor(time * 0.5)
+}
+console.log(litres(11.8))
+*/
 
+//Printer Errors - kata/56541980fa08ab47a0000040
+/*Description:
+In a factory a printer prints labels for boxes. For one kind of boxes the printer has to use colors which, for the sake of simplicity, are named with letters from a to m.
+
+The colors used by the printer are recorded in a control string. For example a "good" control string would be aaabbbbhaijjjm meaning that the printer used three times color a, four times color b, one time color h then one time color a...
+
+Sometimes there are problems: lack of colors, technical malfunction and a "bad" control string is produced e.g. aaaxbbbbyyhwawiwjjjwwm with letters not from a to m.
+
+You have to write a function printer_error which given a string will return the error rate of the printer as a string representing a rational whose numerator is the number of errors and the denominator the length of the control string. Don't reduce this fraction to a simpler expression.
+
+The string has a length greater or equal to one and contains only letters from ato z.
+
+Examples:
+s="aaabbbbhaijjjm"
+printer_error(s) => "0/14"
+
+s="aaaxbbbbyyhwawiwjjjwwm"
+printer_error(s) => "8/22"
+*/
+/*function printerError(s) {
+    let colorLetters = 'abcdefghijklm';
+    let errorCount = 0;
+    let arr = s.split('');
+    for (letter of arr) {
+        if (!colorLetters.includes(letter)) {
+            errorCount++
+        }
+    }
+    return `${errorCount}/${s.length}`
+}
+console.log(printerError("aaaxbbbbyyhwawiwjjjwwm"));
+*/
+
+//Opposites Attract - kata/555086d53eac039a2a000083
+/*Description:
+Timmy & Sarah think they are in love, but around where they live, they will only know once they pick a flower each. If one of the flowers has an even number of petals and the other has an odd number of petals it means they are in love.
+
+Write a function that will take the number of petals of each flower and return true if they are in love and false if they aren't.
+*/
+/*function lovefunc(flower1, flower2) {
+    return (flower1 % 2 !== flower2 % 2)
+}
+console.log(lovefunc(2, 8))
+*/
+
+//Century From Year - kata/5a3fe3dde1ce0e8ed6000097
+/*Description:
+Introduction
+The first century spans from the year 1 up to and including the year 100, the second century - from the year 101 up to and including the year 200, etc.
+
+Task
+Given a year, return the century it is in.
+
+Examples
+1705 --> 18
+1900 --> 19
+1601 --> 17
+2000 --> 20
+2742 --> 28
+Note: this kata uses strict construction as shown in the description and the examples, you can read more about it here
+*/
+/*function century(year) {
+    return Math.ceil(year / 100)
+}
+console.log(century(2000))
+*/
+
+//Convert number to reversed array of digits - kata/5583090cbe83f4fd8c000051
+/*Description:
+Given a random non-negative number, you have to return the digits of this number within an array in reverse order.
+
+Example (Input => Output):
+35231 => [1,3,2,5,3]
+0     => [0]
+*/
+/*function digitize(n) {
+    return n.toString().split('').reverse().map(el => +el);
+}
+console.log(digitize(35231));
+*/
+
+//Returning Strings - kata/55a70521798b14d4750000a4
+/*Description:
+Create a function that accepts a parameter representing a name and returns the message: "Hello, <name> how are you doing today?".
+
+[Make sure you type the exact thing I wrote or the program may not execute properly]
+*/
+/*function greet(name){
+  return `Hello, ${name} how are you doing today?`
+}
+/*
 
 
 //////////////////////////////////////////////////////////////////////
