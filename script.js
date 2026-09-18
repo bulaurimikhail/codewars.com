@@ -906,7 +906,7 @@ Examples:(Input1, Input2 --> Output (explanation)))
 console.log(addBinary(3, 3))
 */
 
-//
+//Проверка синхронизации на ноутбуке 14:04
 
 
 
