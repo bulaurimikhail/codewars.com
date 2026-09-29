@@ -906,8 +906,139 @@ Examples:(Input1, Input2 --> Output (explanation)))
 console.log(addBinary(3, 3))
 */
 
-//Проверка синхронизации на ноутбуке 14:04
-//Проверка синхронизациина телефоне 14:11
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////29.09.2026//////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+//Function 1 - hello world - kata/523b4ff7adca849afe000035
+/*Description:
+Make a simple function called greet that returns the most-famous "hello world!".
+
+Style Points
+Sure, this is about as easy as it gets. But how clever can you be to create
+the most creative "hello world" you can think of?
+What is a "hello world" solution you would want to show your friends?
+*/
+// Write a function "greet" that returns "hello world!"
+/*function greet() {
+    return "hello world!"
+}
+console.log(greeting())
+*/
+
+//Validate a PIN code - kata/55f8a9c06c018a0d6e000132
+/*Description:
+ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything
+but exactly 4 digits or exactly 6 digits.
+
+If the function is passed a valid PIN string, return true, else return false.
+
+Examples (Input --> Output)
+"1234"   -->  true
+"12345"  -->  false
+"a234"   -->  false
+*/
+/*function validatePIN(pin) {
+    return (pin.length === 4 || pin.length === 6) &&
+        [...pin].every(char => char >= '0' && char <= '9');
+}
+console.log(validatePIN("1234"))
+*/
+
+//Growth of a Population - kata/563b662a59afc2b5120000c6
+/*Description:
+In a small town the population is p0 = 1000 at the beginning of a year.
+The population regularly increases by 2 percent per year and moreover
+50 new inhabitants per year come to live in the town. How many years
+does the town need to see its population greater than or equal to p = 1200 inhabitants?
+
+At the end of the first year there will be:
+1000 + 1000 * 0.02 + 50 => 1070 inhabitants
+
+At the end of the 2nd year there will be:
+1070 + 1070 * 0.02 + 50 => 1141 inhabitants (** number of inhabitants is an integer **)
+
+At the end of the 3rd year there will be:
+1141 + 1141 * 0.02 + 50 => 1213
+
+It will need 3 entire years.
+More generally given parameters:
+
+p0, percent, aug (inhabitants coming or leaving each year), p (population to equal or surpass)
+
+the function nb_year should return n number of entire years needed to get a population greater or equal to p.
+
+aug is an integer, percent a positive or null floating number, p0 and p are positive integers (> 0)
+
+Examples:
+nb_year(1500, 5, 100, 5000) -> 15
+nb_year(1500000, 2.5, 10000, 2000000) -> 10
+Note:
+Don't forget to convert the percent parameter as a percentage in the body of your function: if the parameter percent is 2 you have to convert it to 0.02.
+
+There are no fractions of people. At the end of each year, the population count is an integer: 252.8 people round down to 252 persons.
+*/
+/*function nbYear(p0, percent, aug, p) {
+    let population = p0;
+    let years = 0;
+    for (; population < p; years++) {
+        population = Math.floor(population + (population * (percent / 100)) + aug);
+    }
+    return years
+}
+console.log(nbYear(1500, 5, 100, 5000))
+*/
+
+//Sum Arrays - kata/53dc54212259ed3d4f00071c
+/*Description:
+Write a function that takes an array of numbers and returns the sum of the numbers. The numbers can be negative. If the array is empty, return 0.
+
+Examples
+Input: [1, 5.2, 4, 0, -1]
+Output: 9.2
+
+Input: [-2.398]
+Output: -2.398
+
+Input: []
+Output: 0
+
+Assumptions
+You can assume that you are given a (possibly empty) valid array containing only numbers.
+What We're Testing
+We're testing basic loops and math operations. This is for beginners who are just learning loops and math operations.
+Advanced users may find this extremely easy and can easily write this in one line.
+*/
+/*function sum (numbers) {
+    let sum = 0;
+    for (const number of numbers) {
+        sum = sum + number
+    }
+    return sum
+}
+*/
+
+//A Needle in the Haystack - kata/56676e8fabd2d1ff3000000c
+/*Description:
+Can you find the needle in the haystack?
+
+Write a function findNeedle() that takes an array full of junk but containing one "needle"
+
+After your function finds the needle it should return a message (as a string) that says:
+
+"found the needle at position " plus the index it found the needle, so:
+
+Example(Input --> Output)
+
+["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"] --> "found the needle at position 5"
+Note: In COBOL, it should return "found the needle at position 6"
+*/
+/*function findNeedle(haystack) {
+    let indexOfNeedle = haystack.indexOf("needle")
+    return `found the needle at position ${indexOfNeedle}`
+}
+*/
+
 
 
 
