@@ -1,4 +1,46 @@
 //////////////////////////////////////////////////////////////////////
+///////////Задачки от сайта freeCodeCamp - оценки студентов///////////
+//////////////////////////////////////////////////////////////////////
+
+//Задачка про средний возраст мемберов
+/*function getAverage(scores) {
+    let sum = 0;
+    for (const score of scores) {
+        sum += score;
+    };
+    return sum / scores.length
+}
+*/
+
+//Задачка про сообщение об оценке
+/*function getGrade(score) {
+    if (score === 100) {
+        return "A++";
+    } else if (score >= 90) {
+        return "A";
+    } else if (score >= 80) {
+        return "B";
+    } else if (score >= 70) {
+        return "C";
+    } else if (score >= 60) {
+        return "D";
+    } else {
+        return "F";
+    }
+}
+
+function studentMsg(totalScores, studentScore) {
+    let classAverage = getAverage(totalScores);
+    let studentGrade = getGrade(studentScore);
+    if (studentGrade !== "F") {
+        return `Class average: ${ classAverage }. Your grade: ${ studentGrade }. You passed the course.`
+    } else {
+        return `Class average: ${ classAverage }. Your grade: ${ studentGrade }. You failed the course.`
+    }
+}
+*/
+
+//////////////////////////////////////////////////////////////////////
 //////////////////////////////01.09.2026//////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
@@ -1039,45 +1081,163 @@ Note: In COBOL, it should return "found the needle at position 6"
 }
 */
 
-
-
-
-
 //////////////////////////////////////////////////////////////////////
-///////////Задачки от сайта freeCodeCamp - оценки студентов///////////
+//////////////////////////////30.09.2026//////////////////////////////
 //////////////////////////////////////////////////////////////////////
-/*function getAverage(scores) {
-    let sum = 0;
-    for (const score of scores) {
-        sum += score;
-    };
-    return sum / scores.length
-}
 
-function getGrade(score) {
-    if (score === 100) {
-        return "A++";
-    } else if (score >= 90) {
-        return "A";
-    } else if (score >= 80) {
-        return "B";
-    } else if (score >= 70) {
-        return "C";
-    } else if (score >= 60) {
-        return "D";
-    } else {
-        return "F";
-    }
-}
+//Is this a triangle? - kata/56606694ec01347ce800001b
+/*Description:
+Implement a function that accepts 3 integer values a, b, c. The function should return true if a triangle can be built with the sides of given length and false in any other case.
 
-function studentMsg(totalScores, studentScore) {
-    let classAverage = getAverage(totalScores);
-    let studentGrade = getGrade(studentScore);
-    if (studentGrade !== "F") {
-        return `Class average: ${ classAverage }. Your grade: ${ studentGrade }. You passed the course.`
-    } else {
-        return `Class average: ${ classAverage }. Your grade: ${ studentGrade }. You failed the course.`
-    }
+(In this case, all triangles must have surface greater than 0 to be accepted).
+
+Examples:
+
+Input -> Output
+1,2,2 -> true
+4,2,3 -> true
+2,2,2 -> true
+1,2,3 -> false
+-5,1,3 -> false
+0,2,3 -> false
+1,2,9 -> false
+*/
+/*function isTriangle(a, b, c) {
+    return (
+        a + b > c &&
+        a + c > b &&
+        b + c > a
+    );
 }
+console.log(isTriangle(1, 1, 0))
 */
 
+//Are You Playing Banjo? - kata/53af2b8861023f1d88000832
+/*Description:
+Create a function which answers the question "Are you playing banjo?".
+If your name starts with the letter "R" or lower case "r", you are playing banjo!
+
+The function takes a name as its only argument, and returns one of the following strings:
+
+name + " plays banjo"
+name + " does not play banjo"
+Names given are always valid strings.
+*/
+/*function areYouPlayingBanjo(name) {
+    return name[0].toLowerCase() === 'r'
+        ? `${name} plays banjo`
+        : `${name} does not play banjo`;
+}
+console.log(areYouPlayingBanjo('Ron'));
+console.log(areYouPlayingBanjo('Mary'));
+*/
+
+//Convert a Boolean to a String - kata/551b4501ac0447318f0009cd
+/*Description:
+Implement a function which convert the given boolean value into its string representation.
+
+Note: Only valid inputs will be given.
+*/
+/*function booleanToString(b) {
+    return b.toString();
+}
+console.log(booleanToString(true));
+*/
+
+//Quarter of the year - kata/5ce9c1000bab0b001134f5af
+/*Description:
+Given a month as an integer from 1 to 12, return to which quarter of the year it belongs as an integer number.
+
+For example: month 2 (February), is part of the first quarter; month 6 (June), is part of the second quarter; and month 11 (November), is part of the fourth quarter.
+
+Constraint:
+
+1 <= month <= 12
+*/
+/*const quarterOf = (month) => {
+    return Math.ceil(month / 3);
+}
+console.log(quarterOf(11));
+console.log(quarterOf(2));
+console.log(quarterOf(4));
+*/
+
+//Switch it Up! - kata/5808dcb8f0ed42ae34000031
+/*Description:
+When provided with a number between 0-9, return it in words. Note that the input is guaranteed to be within the range of 0-9.
+
+Input: 1
+
+Output: "One".
+
+If your language supports it, try using a switch statement.
+*/
+/*function switchItUp(number) {
+    switch (number) {
+        case 0: {
+            return "Zero"
+        }
+        case 1: {
+            return "One"
+        }
+        case 2: {
+            return "Two"
+        }
+        case 3: {
+            return "Three"
+        }
+        case 4: {
+            return "Four"
+        }
+        case 5: {
+            return "Five"
+        }
+        case 6: {
+            return "Six"
+        }
+        case 7: {
+            return "Seven"
+        }
+        case 8: {
+            return "Eight"
+        }
+        case 9: {
+            return "Nine"
+        }
+    }
+}
+console.log(switchItUp(3))
+*/
+
+//Do I get a bonus? - kata/56f6ad906b88de513f000d96
+/*Description:
+It's bonus time in the big city! The fatcats are rubbing their paws in anticipation... but who is going to make the most money?
+
+Build a function that takes in two arguments (salary, bonus). Salary will be an integer, and bonus a boolean.
+
+If bonus is true, the salary should be multiplied by 10. If bonus is false, the fatcat did not make enough money and must receive only his stated salary.
+
+Return the total figure the individual will receive as a string prefixed with £ (= "\u00A3", JS, Go, Java, Scala, and Julia), $ (C, C++, C#, Dart, Ruby, Clojure, Elixir, PHP, Python, Haskell, and Lua) or ¥ (Rust).
+*/
+/*function bonusTime(salary, bonus) {
+    if (bonus) {
+        return `£${salary * 10}`
+    } else {
+        return `£${salary}`
+    }
+}
+console.log(bonusTime(100, true))
+*/
+
+//Count by X - kata/5513795bd3fafb56c200049e
+/*Description:
+Create a function with two arguments that will return an array of the first n multiples of x.
+
+Assume both the given number and the number of times to count will be positive numbers greater than 0.
+
+Return the results as an array or list ( depending on language ).
+
+Examples
+x = 1, n = 10 --> [1,2,3,4,5,6,7,8,9,10]
+x = 2, n = 5  --> [2,4,6,8,10]
+*/
