@@ -1320,4 +1320,125 @@ Finally, return the padded string.
 console.log(padIt('Misha', 3))
 */
 
-//Training JS #11: loop statement --break,continue
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////2.10.2026///////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+//Training JS #11: loop statement --break,continue - kata/5721c189cdd71194c1000b9
+/*Task
+Coding in function grabDoll. function accept 1 parameter:dolls. it's a string array, a list of some dolls.
+
+You need traverse dolls by using for loop. If element is "Hello Kitty" or "Barbie doll", you should push it to a bag(bag is an array, I've defined in the function); if it's other strings, we should use continue skip it.
+
+When the bag has three element, bag is full. You should use break jump out the loop; If bag is not full, you should traverse dolls until the last element.
+
+Return the bag after for loop finished.
+
+You should use for, break and continue in your code. otherwise, your solution may not pass this kata.
+
+If you forgot how to push an element to array, please refer to lesson 4.
+*/
+/*function grabDoll(dolls) {
+    var bag = [];
+    for (const doll of dolls) {
+        if (doll === "Hello Kitty" || doll === "Barbie doll") {
+            bag.push(doll)
+        } else {
+            continue
+        }
+        if (bag.length === 3) {
+            break
+        }
+
+    }
+    return bag;
+}
+console.log(grabDoll(["Hello Kitty", "Misha", "Barbie doll", "Ksiusha"]))
+*/
+
+//Remove the minimum - kata/563cf89eb4747c5fb100001b
+/*Description:
+The museum of incredibly dull things
+The museum of incredibly dull things wants to get rid of some exhibits. Miriam, the interior architect, comes up with a plan to remove the most boring exhibits. She gives them a rating, and then removes the one with the lowest rating.
+
+However, just as she finished rating all exhibits, she's off to an important fair, so she asks you to write a program that tells her the ratings of the exhibits after removing the lowest one. Fair enough.
+
+Task
+Given an array of integers, remove the smallest value. Do not mutate the original array/list. If there are multiple elements with the same value, remove the one with the lowest index. If you get an empty array/list, return an empty array/list.
+
+Don't change the order of the elements that are left.
+
+Examples
+* Input: [1,2,3,4,5], output = [2,3,4,5]
+* Input: [5,3,2,1,4], output = [5,3,2,4]
+* Input: [2,2,1,2,1], output = [2,2,2,1]
+*/
+/*
+let arr1 = [1, 2, 3, 4, 5]; //output [2,3,4,5]
+let arr2 = [5, 3, 2, 1, 4]; //output [5,3,2,4]
+let arr3 = [2, 2, 1, 2, 1]; //output [2,2,2,1]
+
+function removeSmallest(numbers) {
+    let minIndex = numbers.indexOf(Math.min(...numbers));
+    return [...numbers.slice(0, minIndex), ...numbers.slice(minIndex + 1)];
+}
+console.log(removeSmallest(arr1));
+console.log(removeSmallest(arr2));
+console.log(removeSmallest(arr3));
+*/
+
+//Training JS #5: Basic data types--Object - kata/571f1eb77e8954a812000837
+/*Description:
+In JavaScript, Object is one of basic data types. To define an object you can use let obj = new Object() or let obj = {}.
+
+You can define the object attributes during initialization, like this:
+
+let animal = {name: "dog"}
+you can also set/get some properties after the object definition, like this:
+
+let animal = {}
+animal.name = "dog"
+// or:
+animal["name"] = "dog"
+Task
+Give you a function animal, accept 1 parameter:obj like this:
+
+{name:"dog",legs:4,color:"white"}
+and return a string like this:
+
+"This white dog has 4 legs."
+*/
+/*function animal(obj) {
+    return `This ${obj.color} ${obj.name} has ${obj.legs} legs.`;
+}
+console.log(animal({ name: "dog", legs: 4, color: "white" }))
+*/
+
+//Merge two sorted arrays into one - kata/5899642f6e1b25935d000161
+/*
+Description:
+You are given two sorted arrays that contain only integers. These arrays may be sorted in either ascending or descending order. Your task is to merge them into a single array, ensuring that:
+
+The resulting array is sorted in ascending order.
+
+Any duplicate values are removed, so each integer appears only once.
+
+If both input arrays are empty, return an empty array.
+
+No input validation is needed, as both arrays are guaranteed to contain zero or more integers.
+
+Examples (input -> output)
+* [1, 2, 3, 4, 5], [6, 7, 8, 9, 10] -> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+* [1, 3, 5, 7, 9], [10, 8, 6, 4, 2] -> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+* [1, 3, 5, 7, 9, 11, 12], [1, 2, 3, 4, 5, 10, 12] -> [1, 2, 3, 4, 5, 7, 9, 10, 11, 12]
+*/
+function mergeArrays(arr1, arr2) {
+    return [...arr1, ...arr2]
+        .sort((a, b) => a - b)
+        .filter((el, i, arr) => el !== arr[i - 1]);
+}
+console.log(mergeArrays([1, 2, 3, 4, 5], [6, 7, 8, 9, 10]));
+console.log(mergeArrays([1, 3, 5, 7, 9], [10, 8, 6, 4, 2]));
+console.log(mergeArrays([1, 3, 5, 7, 9, 11, 12], [1, 2, 3, 4, 5, 10, 12]));
