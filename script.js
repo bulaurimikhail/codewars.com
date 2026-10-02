@@ -1434,7 +1434,7 @@ Examples (input -> output)
 
 * [1, 3, 5, 7, 9, 11, 12], [1, 2, 3, 4, 5, 10, 12] -> [1, 2, 3, 4, 5, 7, 9, 10, 11, 12]
 */
-function mergeArrays(arr1, arr2) {
+/*function mergeArrays(arr1, arr2) {
     return [...arr1, ...arr2]
         .sort((a, b) => a - b)
         .filter((el, i, arr) => el !== arr[i - 1]);
@@ -1442,3 +1442,20 @@ function mergeArrays(arr1, arr2) {
 console.log(mergeArrays([1, 2, 3, 4, 5], [6, 7, 8, 9, 10]));
 console.log(mergeArrays([1, 3, 5, 7, 9], [10, 8, 6, 4, 2]));
 console.log(mergeArrays([1, 3, 5, 7, 9, 11, 12], [1, 2, 3, 4, 5, 10, 12]));
+*/
+
+//Remove duplicates from list - kata/57a5b0dfcf1fa526bb000118
+/*Description:
+Define a function that removes duplicates from an array of non negative numbers and returns it as a result.
+
+The order of the sequence has to stay the same.
+
+Examples:
+
+Input -> Output
+[1, 1, 2] -> [1, 2]
+[1, 2, 1, 1, 3, 2] -> [1, 2, 3]
+*/
+function distinct(a) {
+    return [];
+}
