@@ -1444,6 +1444,10 @@ console.log(mergeArrays([1, 3, 5, 7, 9], [10, 8, 6, 4, 2]));
 console.log(mergeArrays([1, 3, 5, 7, 9, 11, 12], [1, 2, 3, 4, 5, 10, 12]));
 */
 
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////5.10.2026///////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
 //Remove duplicates from list - kata/57a5b0dfcf1fa526bb000118
 /*Description:
 Define a function that removes duplicates from an array of non negative numbers and returns it as a result.
@@ -1456,6 +1460,17 @@ Input -> Output
 [1, 1, 2] -> [1, 2]
 [1, 2, 1, 1, 3, 2] -> [1, 2, 3]
 */
+/*const array1 = [1, 2, 7, 1, 3, 1, 4, 7, 9, 11, 1, 5, 3, 11];
 function distinct(a) {
-    return [];
+    return a.filter((el, i, arr) => {
+        return arr.indexOf(el) === i;
+    });
 }
+function distinct2(a) {
+    return [...new Set(a)];
+}
+console.log(distinct(array1));
+console.log(distinct2(array1));
+*/
+
+//
