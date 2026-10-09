@@ -1473,4 +1473,71 @@ console.log(distinct(array1));
 console.log(distinct2(array1));
 */
 
-//
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////9.10.2026///////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+//Who's Online? - kata/5b6375f707a2664ada00002a
+/*You have a group chat application, but who is online!?
+You want to show your users which of their friends are online and available to chat!
+Given an input of an array of objects containing usernames, status and time since last activity (in mins), create a function to work out who is online, offline and away.
+If someone is online but their lastActivity was more than 10 minutes ago they are to be considered away.
+*/
+const whosOnline = (friends) => {
+    const result = { online: [], offline: [], away: [] };
+
+    for (const user of friends) {
+        if (user.status === 'offline') {
+            result.offline.push(user.username);
+        } else if (user.lastActivity > 10) {
+            result.away.push(user.username);
+        } else {
+            result.online.push(user.username);
+        }
+    }
+
+    if (result.online.length === 0) delete result.online;
+    if (result.offline.length === 0) delete result.offline;
+    if (result.away.length === 0) delete result.away;
+
+    return result
+}
+const groupOfFriends = [{
+    username: 'David',
+    status: 'online',
+    lastActivity: 10
+}, {
+    username: 'Lucy',
+    status: 'offline',
+    lastActivity: 22
+}, {
+    username: 'Bob',
+    status: 'online',
+    lastActivity: 104
+},
+{
+    username: 'John',
+    status: 'offline',
+    lastActivity: 22
+},
+{
+    username: 'Marta',
+    status: 'online',
+    lastActivity: 3
+},
+{
+    username: 'Jack',
+    status: 'online',
+    lastActivity: 11
+},
+{
+    username: 'Liza',
+    status: 'online',
+    lastActivity: 5
+},
+{
+    username: 'Bart',
+    status: 'online',
+    lastActivity: 1
+},];
+console.log(whosOnline(groupOfFriends));
