@@ -1483,7 +1483,7 @@ You want to show your users which of their friends are online and available to c
 Given an input of an array of objects containing usernames, status and time since last activity (in mins), create a function to work out who is online, offline and away.
 If someone is online but their lastActivity was more than 10 minutes ago they are to be considered away.
 */
-const whosOnline = (friends) => {
+/*const whosOnline = (friends) => {
     const result = { online: [], offline: [], away: [] };
 
     for (const user of friends) {
@@ -1541,3 +1541,81 @@ const groupOfFriends = [{
     lastActivity: 1
 },];
 console.log(whosOnline(groupOfFriends));
+*/
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////13.10.2026///////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+//Return a sorted list of objects - kata/52705ed65de62b733f000064
+/*
+You'll be passed a list/array of objects/dictionaries/hashes (depending on your language). You must sort them in descending order based on the value of the specified key.
+
+The values will always be numbers, and the properties will always exist.
+Your function should return a shallow copy of the input and not mutate the original list/array (i.e. not an in-place sort).
+The sorting should be stable: two elements with the same value for a given sorting key should retain their relative order in the array.
+Example
+When sorted by "a", this:
+
+[
+  {"a": 1, "b": 3},
+  {"a": 3, "b": 2},
+  {"a": 2, "b": 40},
+  {"a": 4, "b": 12}
+]
+should return:
+
+[
+  {"a": 4, "b": 12},
+  {"a": 3, "b": 2},
+  {"a": 2, "b": 40},
+  {"a": 1, "b": 3}
+]
+*/
+/*let arrayOfObjects = [
+    { "a": 1, "b": 3 },
+    { "a": 3, "b": 2 },
+    { "a": 2, "b": 40 },
+    { "a": 4, "b": 12 }
+]
+function sortList(sortBy, list) {
+    return [...list].sort((a, b) => b[sortBy] - a[sortBy])
+}
+console.log(sortList("a", arrayOfObjects));
+*/
+
+//Coding Meetup #17 - Higher-Order Functions Series - Sort by programming language - 583ea278c68d96a5fd000abd
+/*
+You will be given an array of objects representing data about developers who have signed up to attend the next coding meetup that you are organising.
+
+Given the following input array:
+
+var list1 = [  
+  { firstName: 'Nikau', lastName: 'R.', country: 'New Zealand', continent: 'Oceania', age: 39, language: 'Ruby' },
+  { firstName: 'Precious', lastName: 'G.', country: 'South Africa', continent: 'Africa', age: 22, language: 'JavaScript' },
+  { firstName: 'Maria', lastName: 'S.', country: 'Peru', continent: 'Americas', age: 30, language: 'C' },
+  { firstName: 'Agustin', lastName: 'V.', country: 'Uruguay', continent: 'Americas', age: 19, language: 'JavaScript' }
+];
+Write a function that returns the array sorted alphabetically by the programming language. In case there are some developers that code in the same language, sort them alphabetically by the first name:
+
+[ 
+  { firstName: 'Maria', lastName: 'S.', country: 'Peru', continent: 'Americas', age: 30, language: 'C' },
+  { firstName: 'Agustin', lastName: 'V.', country: 'Uruguay', continent: 'Americas', age: 19, language: 'JavaScript' },
+  { firstName: 'Precious', lastName: 'G.', country: 'South Africa', continent: 'Africa', age: 22, language: 'JavaScript' },
+  { firstName: 'Nikau', lastName: 'R.', country: 'New Zealand', continent: 'Oceania', age: 39, language: 'Ruby' }
+];
+Notes:
+
+The input array will always be valid and formatted as in the example above.
+The array does not include developers coding in the same language and sharing the same name.
+*/
+const programmers = [
+    { firstName: 'Nikau', lastName: 'R.', country: 'New Zealand', continent: 'Oceania', age: 39, language: 'Ruby' },
+    { firstName: 'Precious', lastName: 'G.', country: 'South Africa', continent: 'Africa', age: 22, language: 'JavaScript' },
+    { firstName: 'Maria', lastName: 'S.', country: 'Peru', continent: 'Americas', age: 30, language: 'C' },
+    { firstName: 'Agustin', lastName: 'V.', country: 'Uruguay', continent: 'Americas', age: 19, language: 'JavaScript' }
+];
+function sortByLanguage(list) {
+    return list.sort((a, b) => a[language] - b[language])
+}
+console.log(sortByLanguage(programmers))
