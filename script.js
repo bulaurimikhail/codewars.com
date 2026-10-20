@@ -1584,6 +1584,10 @@ function sortList(sortBy, list) {
 console.log(sortList("a", arrayOfObjects));
 */
 
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////16.10.2026///////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
 //Coding Meetup #17 - Higher-Order Functions Series - Sort by programming language - 583ea278c68d96a5fd000abd
 /*
 You will be given an array of objects representing data about developers who have signed up to attend the next coding meetup that you are organising.
@@ -1609,6 +1613,7 @@ Notes:
 The input array will always be valid and formatted as in the example above.
 The array does not include developers coding in the same language and sharing the same name.
 */
+/*
 const programmers = [
     { firstName: 'Nikau', lastName: 'R.', country: 'New Zealand', continent: 'Oceania', age: 39, language: 'Ruby' },
     { firstName: 'Precious', lastName: 'G.', country: 'South Africa', continent: 'Africa', age: 22, language: 'JavaScript' },
@@ -1619,3 +1624,19 @@ function sortByLanguage(list) {
     return list.sort((a, b) => a[language] - b[language])
 }
 console.log(sortByLanguage(programmers))
+*/
+
+
+//////////////////////////////////////////////////////////////////////
+///////////////////Диагностика навыков JavaScript/////////////////////
+//////////////////////////////////////////////////////////////////////
+
+
+const products = [
+    { name: "Milk", category: "dairy", price: 4.5, stock: 12 },
+    { name: "Bread", category: "bakery", price: 2.3, stock: 0 },
+    { name: "Cheese", category: "dairy", price: 8.2, stock: 5 },
+    { name: "Apple", category: "fruit", price: 3.1, stock: 20 },
+    { name: "Yogurt", category: "dairy", price: 2.8, stock: 0 },
+    { name: "Banana", category: "fruit", price: 3.1, stock: 15 }
+];
