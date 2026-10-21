@@ -1631,8 +1631,17 @@ console.log(sortByLanguage(programmers))
 ///////////////////Диагностика навыков JavaScript/////////////////////
 //////////////////////////////////////////////////////////////////////
 
-
-const products = [
+//  ЗАДАЧА №1 "Каталог продуктов"
+/*  Условие и задание
+Написать функцию, которая должна:
+1. Оставить только продукты, у которых stock > 0.
+2. Если передана категория, оставить продукты только этой категории.
+3. Отсортировать результат по цене от меньшей к большей.
+4. Если цены совпадают, отсортировать продукты по названию в алфавитном порядке.
+5. Вернуть массив названий продуктов, а не объектов.
+6. Не изменять исходный массив.
+*/
+/*const products = [
     { name: "Milk", category: "dairy", price: 4.5, stock: 12 },
     { name: "Bread", category: "bakery", price: 2.3, stock: 0 },
     { name: "Cheese", category: "dairy", price: 8.2, stock: 5 },
@@ -1640,3 +1649,94 @@ const products = [
     { name: "Yogurt", category: "dairy", price: 2.8, stock: 0 },
     { name: "Banana", category: "fruit", price: 3.1, stock: 15 }
 ];
+function getAvailableProducts(products, category = "") {
+
+    const getProductsInStock = products
+        .filter((product) => product.stock > 0);
+
+    const productsSortedByPrice = getProductsInStock
+        .sort((a, b) => {
+            if (a.price === b.price) {
+                return a.name.localeCompare(b.name);
+            }
+            return a.price - b.price;
+        });
+
+    const getTheCategory = productsSortedByPrice
+        .filter((product) => {
+            return !category || product.category === category;
+        });
+
+    return getTheCategory.map((product) => product.name);
+}
+console.log(getAvailableProducts(products, "dairy")); // ["Milk", "Cheese"]
+console.log(getAvailableProducts(products, "fruit")); // ["Apple", "Banana"]
+console.log(getAvailableProducts(products)); // ["Apple", "Banana", "Milk", "Cheese"]
+*/
+
+// ЗАДАЧА №2 "Статистика продаж"
+// У нас есть массив заказов небольшого интернет-магазина:
+const orders = [
+    { id: 1, customer: "Alex", category: "electronics", amount: 120, status: "completed" },
+    { id: 2, customer: "Kate", category: "books", amount: 35, status: "completed" },
+    { id: 3, customer: "Mike", category: "electronics", amount: 250, status: "cancelled" },
+    { id: 4, customer: "Anna", category: "clothing", amount: 80, status: "completed" },
+    { id: 5, customer: "Alex", category: "books", amount: 45, status: "completed" },
+    { id: 6, customer: "Kate", category: "electronics", amount: 200, status: "completed" },
+    { id: 7, customer: "Mike", category: "clothing", amount: 60, status: "cancelled" },
+    { id: 8, customer: "Anna", category: "books", amount: 25, status: "completed" }
+];
+//Напиши функцию:
+
+function getSalesStatistics(orders) {
+    const completedOrders = orders.filter(
+        order => order.status === "completed"
+    );
+
+    const totalRevenue = completedOrders.reduce(
+        (acc, order) => acc + order.amount, 0
+    );
+
+    const numberOfCompletedOrders = completedOrders.length;
+
+    const revenueByCategory = {};
+
+    for (const order of completedOrders) {
+        const category = order.category;
+
+        if (revenueByCategory[category] === undefined) {
+            revenueByCategory[category] = 0;
+        }
+
+        revenueByCategory[category] += order.amount;
+    }
+
+    return {
+        totalRevenue,
+        completedOrders: numberOfCompletedOrders,
+        revenueByCategory
+    };
+}
+
+// Функция должна возвращать объект следующей структуры:
+/*let result = {
+    totalRevenue: 505,
+    completedOrders: 6,
+    revenueByCategory: {
+        electronics: 320,
+        books: 105,
+        clothing: 80
+    }
+}*/
+/*
+Значения в примере правильные — они рассчитаны по массиву выше.
+Условия:
+1. Учитываются только заказы со статусом "completed". (+++)
+2. totalRevenue — общая сумма выполненных заказов. (+++)
+3. completedOrders — количество выполненных заказов. (+++)
+4. revenueByCategory — объект, где ключом является категория товара, а значением — сумма заказов этой категории.
+5. Исходный массив orders изменять нельзя.
+6. Если массив пустой или все заказы отменены, функция должна вернуть
+нулевые значения и пустой объект категорий.
+*/
+console.log(getSalesStatistics(orders));
