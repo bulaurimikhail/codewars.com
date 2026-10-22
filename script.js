@@ -1594,7 +1594,7 @@ You will be given an array of objects representing data about developers who hav
 
 Given the following input array:
 
-var list1 = [  
+var list1 = [
   { firstName: 'Nikau', lastName: 'R.', country: 'New Zealand', continent: 'Oceania', age: 39, language: 'Ruby' },
   { firstName: 'Precious', lastName: 'G.', country: 'South Africa', continent: 'Africa', age: 22, language: 'JavaScript' },
   { firstName: 'Maria', lastName: 'S.', country: 'Peru', continent: 'Americas', age: 30, language: 'C' },
@@ -1602,7 +1602,7 @@ var list1 = [
 ];
 Write a function that returns the array sorted alphabetically by the programming language. In case there are some developers that code in the same language, sort them alphabetically by the first name:
 
-[ 
+[
   { firstName: 'Maria', lastName: 'S.', country: 'Peru', continent: 'Americas', age: 30, language: 'C' },
   { firstName: 'Agustin', lastName: 'V.', country: 'Uruguay', continent: 'Americas', age: 19, language: 'JavaScript' },
   { firstName: 'Precious', lastName: 'G.', country: 'South Africa', continent: 'Africa', age: 22, language: 'JavaScript' },
@@ -1676,7 +1676,7 @@ console.log(getAvailableProducts(products)); // ["Apple", "Banana", "Milk", "Che
 
 // ЗАДАЧА №2 "Статистика продаж"
 // У нас есть массив заказов небольшого интернет-магазина:
-const orders = [
+/*const orders = [
     { id: 1, customer: "Alex", category: "electronics", amount: 120, status: "completed" },
     { id: 2, customer: "Kate", category: "books", amount: 35, status: "completed" },
     { id: 3, customer: "Mike", category: "electronics", amount: 250, status: "cancelled" },
@@ -1685,10 +1685,10 @@ const orders = [
     { id: 6, customer: "Kate", category: "electronics", amount: 200, status: "completed" },
     { id: 7, customer: "Mike", category: "clothing", amount: 60, status: "cancelled" },
     { id: 8, customer: "Anna", category: "books", amount: 25, status: "completed" }
-];
-//Напиши функцию:
+];*/
 
-function getSalesStatistics(orders) {
+//  Напиши функцию:
+/*function getSalesStatistics(orders) {
     const completedOrders = orders.filter(
         order => order.status === "completed"
     );
@@ -1716,9 +1716,9 @@ function getSalesStatistics(orders) {
         completedOrders: numberOfCompletedOrders,
         revenueByCategory
     };
-}
+}*/
 
-// Функция должна возвращать объект следующей структуры:
+//  Функция должна возвращать объект следующей структуры:
 /*let result = {
     totalRevenue: 505,
     completedOrders: 6,
@@ -1728,15 +1728,82 @@ function getSalesStatistics(orders) {
         clothing: 80
     }
 }*/
-/*
-Значения в примере правильные — они рассчитаны по массиву выше.
+/*Значения в примере правильные — они рассчитаны по массиву выше.
 Условия:
-1. Учитываются только заказы со статусом "completed". (+++)
-2. totalRevenue — общая сумма выполненных заказов. (+++)
-3. completedOrders — количество выполненных заказов. (+++)
+1. Учитываются только заказы со статусом "completed".
+2. totalRevenue — общая сумма выполненных заказов.
+3. completedOrders — количество выполненных заказов.
 4. revenueByCategory — объект, где ключом является категория товара, а значением — сумма заказов этой категории.
 5. Исходный массив orders изменять нельзя.
 6. Если массив пустой или все заказы отменены, функция должна вернуть
-нулевые значения и пустой объект категорий.
-*/
-console.log(getSalesStatistics(orders));
+нулевые значения и пустой объект категорий.*/
+//console.log(getSalesStatistics(orders));
+
+//  ЗАДАЧА №4 "Статистика успеваемости"
+//  Дан массив студентов, изучающих различные предметы:
+const students = [
+    { name: "Alex", subject: "math", score: 85 },
+    { name: "Kate", subject: "english", score: 92 },
+    { name: "Mike", subject: "math", score: 70 },
+    { name: "Anna", subject: "history", score: 88 },
+    { name: "John", subject: "english", score: 76 },
+    { name: "Emma", subject: "math", score: 95 },
+    { name: "David", subject: "history", score: 64 },
+    { name: "Sophie", subject: "english", score: 89 }
+];
+
+//  Напиши функцию:
+function getStudentStatistics(students) {
+    const totalStudents = students.length;
+    const averageScore = (students.reduce(
+        (acc, student) => acc + student.score, 0
+    )) / totalStudents
+    let subjects = {}
+    for (const student of students) {
+        const subject = student.subject
+        if (subjects[subject] === undefined) {
+            subjects[subject] = {}
+        }
+
+    }
+    const result = {
+        totalStudents,
+        averageScore,
+        subjects
+    }
+    return result
+}
+console.log(getStudentStatistics(students));
+/*Она должна вернуть объект с тремя свойствами:
+1. totalStudents — общее количество студентов.
+2. averageScore — средний балл всех студентов.
+3. subjects — объект, содержащий статистику по каждому предмету:
+   - count — количество студентов по предмету;
+   - average — средний балл по предмету.*/
+
+//  Ожидаемый результат:
+/*{
+    totalStudents: 8,
+    averageScore: 82.375,
+    subjects: {
+        math: {
+            count: 3,
+            average: 83.33333333333333
+        },
+        english: {
+            count: 3,
+            average: 85.66666666666667
+        },
+        history: {
+            count: 2,
+            average: 76
+        }
+    }
+}*/
+
+/*Важные условия
+- Количество и названия предметов заранее неизвестны — нельзя прописывать отдельно math, english, history.
+- Исходный массив изменять нельзя.
+- Если массив пустой, функция должна вернуть { totalStudents: 0, averageScore: 0, subjects: {} }.
+- Используй любые знакомые методы и циклы.
+- Допускается создавать вспомогательные свойства и объекты, чтобы сначала накопить данные, а потом вычислить средние значения.*/
