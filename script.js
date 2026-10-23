@@ -1741,7 +1741,7 @@ console.log(getAvailableProducts(products)); // ["Apple", "Banana", "Milk", "Che
 
 //  ЗАДАЧА №4 "Статистика успеваемости"
 //  Дан массив студентов, изучающих различные предметы:
-const students = [
+/*const students = [
     { name: "Alex", subject: "math", score: 85 },
     { name: "Kate", subject: "english", score: 92 },
     { name: "Mike", subject: "math", score: 70 },
@@ -1750,22 +1750,34 @@ const students = [
     { name: "Emma", subject: "math", score: 95 },
     { name: "David", subject: "history", score: 64 },
     { name: "Sophie", subject: "english", score: 89 }
-];
+];*/
 
 //  Напиши функцию:
-function getStudentStatistics(students) {
+/*function getStudentStatistics(students) {
     const totalStudents = students.length;
-    const averageScore = (students.reduce(
-        (acc, student) => acc + student.score, 0
-    )) / totalStudents
+    const averageScore = totalStudents > 0
+        ? students.reduce((acc, student) => acc + student.score, 0) / totalStudents
+        : 0;
     let subjects = {}
     for (const student of students) {
         const subject = student.subject
         if (subjects[subject] === undefined) {
-            subjects[subject] = {}
+            subjects[subject] = {
+                count: 0,
+                totalScore: 0
+            }
         }
-
+        subjects[subject].count += 1
+        subjects[subject].totalScore += student.score
     }
+    console.log(subjects);
+    console.log(Object.values(subjects));
+
+    for (const subject of Object.values(subjects)) {
+        subject.average = subject.totalScore / subject.count
+        delete subject.totalScore;
+    }
+
     const result = {
         totalStudents,
         averageScore,
@@ -1773,7 +1785,8 @@ function getStudentStatistics(students) {
     }
     return result
 }
-console.log(getStudentStatistics(students));
+console.log(getStudentStatistics(students));*/
+
 /*Она должна вернуть объект с тремя свойствами:
 1. totalStudents — общее количество студентов.
 2. averageScore — средний балл всех студентов.
@@ -1807,3 +1820,5 @@ console.log(getStudentStatistics(students));
 - Если массив пустой, функция должна вернуть { totalStudents: 0, averageScore: 0, subjects: {} }.
 - Используй любые знакомые методы и циклы.
 - Допускается создавать вспомогательные свойства и объекты, чтобы сначала накопить данные, а потом вычислить средние значения.*/
+
+//  ЗАДАЧА ПРОМЕЖУТОЧНАЯ
