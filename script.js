@@ -1631,7 +1631,7 @@ console.log(sortByLanguage(programmers))
 ///////////////////Диагностика навыков JavaScript/////////////////////
 //////////////////////////////////////////////////////////////////////
 
-//  ЗАДАЧА №1 "Каталог продуктов"
+//  ЗАДАЧА "Каталог продуктов"
 /*  Условие и задание
 Написать функцию, которая должна:
 1. Оставить только продукты, у которых stock > 0.
@@ -1674,7 +1674,7 @@ console.log(getAvailableProducts(products, "fruit")); // ["Apple", "Banana"]
 console.log(getAvailableProducts(products)); // ["Apple", "Banana", "Milk", "Cheese"]
 */
 
-// ЗАДАЧА №2 "Статистика продаж"
+// ЗАДАЧА "Статистика продаж"
 // У нас есть массив заказов небольшого интернет-магазина:
 /*const orders = [
     { id: 1, customer: "Alex", category: "electronics", amount: 120, status: "completed" },
@@ -1739,7 +1739,7 @@ console.log(getAvailableProducts(products)); // ["Apple", "Banana", "Milk", "Che
 нулевые значения и пустой объект категорий.*/
 //console.log(getSalesStatistics(orders));
 
-//  ЗАДАЧА №4 "Статистика успеваемости"
+//  ЗАДАЧА "Статистика успеваемости"
 //  Дан массив студентов, изучающих различные предметы:
 /*const students = [
     { name: "Alex", subject: "math", score: 85 },
@@ -1821,4 +1821,187 @@ console.log(getStudentStatistics(students));*/
 - Используй любые знакомые методы и циклы.
 - Допускается создавать вспомогательные свойства и объекты, чтобы сначала накопить данные, а потом вычислить средние значения.*/
 
-//  ЗАДАЧА ПРОМЕЖУТОЧНАЯ
+//  ЗАДАЧА "Управление складом"
+//  Исходные данные:
+/*const inventory = [
+    { id: 1, name: "Milk", price: 4.5, stock: 10 },
+    { id: 2, name: "Bread", price: 2.0, stock: 10 },
+    { id: 3, name: "Cheese", price: 8.0, stock: 10 },
+    { id: 4, name: "Potato", price: 1.0, stock: 10 },
+    { id: 5, name: "Cucumber", price: 1.5, stock: 10 },
+    { id: 6, name: "Tomato", price: 3.0, stock: 10 },
+    { id: 7, name: "Carrot", price: 1.5, stock: 10 },
+    { id: 8, name: "Beef", price: 30.0, stock: 10 },
+    { id: 9, name: "Chicken", price: 10.0, stock: 10 },
+
+];*/
+
+//  Напиши функцию:
+/*function purchaseProduct(inventory, productId, quantity) {
+    const result = {}
+
+    const item = inventory.find(product => product.id === productId);
+
+    if (item === undefined) {
+        result.success = false;
+        result.message = "Product not found";
+        return result
+    }
+
+    if (!(Number.isInteger(quantity)) || quantity <= 0) {
+        result.success = false;
+        result.message = "Invalid quantity";
+        return result
+    }
+
+    if (quantity > item.stock) {
+        result.success = false;
+        result.message = "Not enough stock"
+        return result
+    }
+
+    result.success = true;
+    result.product = item.name;
+    result.totalPrice = item.price * quantity;
+    result.remainingStock = item.stock - quantity;
+    result.updatedInventory = inventory.map((product) => {
+        if (product.id === item.id) {
+            return {
+                ...product,
+                stock: product.stock - quantity
+            }
+        }
+        return product
+    })
+    return result
+}*/
+
+/*  Функция должна находить продукт по id, проверять возможность покупки и возвращать объект с результатом.
+Условия:
+1. Если продукт не найден, вернуть { success: false, message: "Product not found" }.
+2. Если количество не является положительным целым числом, вернуть { success: false, message: "Invalid quantity" }.
+3. Если товара на складе недостаточно, вернуть { success: false, message: "Not enough stock" }.
+4. Если покупка возможна, уменьшить stock соответствующего продукта на quantity.
+5. При успешной покупке вернуть объект { success: true, product: "Milk", totalPrice: 9, remainingStock: 8 } с фактическими значениями.
+6. Важное требование: исходный массив inventory и содержащиеся в нём объекты должны остаться неизменными. Функция не должна изменять данные склада напрямую.
+Для выполнения шестого условия добавь в успешный результат свойство updatedInventory, содержащее новый массив с обновлённым остатком товара.*/
+
+/*  Пример успешного результата:
+{
+    success: true,
+    product: "Milk",
+    totalPrice: 9,
+    remainingStock: 8,
+    updatedInventory: [
+        { id: 1, name: "Milk", price: 4.5, stock: 8 },
+        { id: 2, name: "Bread", price: 2, stock: 5 },
+        { id: 3, name: "Cheese", price: 8, stock: 3 }
+    ]
+}
+*/
+// console.log(purchaseProduct(inventory, 3, 2));
+// console.log(purchaseProduct(inventory, 2, 10));
+// console.log(purchaseProduct(inventory, 99, 1));
+// console.log(purchaseProduct(inventory, 1, -3));
+// console.log(inventory);
+
+//  ЗАДАЧА "Cистема бронирования"
+
+//  Массив бронирований:
+const bookings = [
+    { id: 1, room: "A", start: 9, end: 11 },
+    { id: 2, room: "B", start: 10, end: 12 },
+    { id: 3, room: "A", start: 13, end: 15 },
+    { id: 4, room: "C", start: 11, end: 14 },
+
+    { id: 5, room: "A", start: 11, end: 12 },
+    { id: 6, room: "B", start: 12, end: 13 },
+    { id: 7, room: "A", start: 15, end: 16 },
+    { id: 8, room: "A", start: 18, end: 19 },
+    { id: 9, room: "C", start: 18, end: 19 },
+
+];
+
+//  Напиши функцию:
+function addBooking(bookings, room, start, end) {
+
+    // Проверка (1) невалидный индекс комнаты в запросе
+    if (!(room === "A" || room === "B" || room === "C")) {
+        return { success: false, message: "Invalid room" }
+    }
+
+    // Проверка (2) невалидное время в запросе
+    if (!(start >= 8 && end <= 20 && start < end && Number.isInteger(start) && Number.isInteger(end))) {
+        return { success: false, message: "Invalid time" }
+    }
+
+    // Проверка (3) наличие свободных часов
+    for (const booking of bookings) {
+        if (booking.room === room) {
+            if (start < booking.end && end > booking.start) {
+                return { success: false, message: "Room is already booked" }
+            }
+        }
+    }
+
+    // Реализация (4) успешного бронирования
+    let booking = {};
+    const maxId = bookings.reduce((max, booking) => {
+        Math.max(max, booking.id)
+    }, 0)
+    booking.id = maxId + 1;
+    booking.room = room;
+    booking.start = start;
+    booking.end = end;
+    let updatedBookings = [...bookings, booking]
+    let result = {
+        success: true,
+        booking,
+        updatedBookings
+    }
+    return result
+}
+
+/*  Требования:
+1. Бронирование возможно только для комнат "A", "B" и "C".
+2. Время задаётся целыми часами от 8 до 20. start должен быть меньше end.
+3. Нельзя создавать бронирования, которые пересекаются по времени с существующими бронированиями той же комнаты.
+4. Если бронирование успешно, функция должна вернуть объект:
+
+{
+    success: true,
+    booking: {
+        id: 5,
+        room: "A",
+        start: 11,
+        end: 13
+    },
+    updatedBookings: [
+        // Существующие бронирования
+        // и новое бронирование
+    ]
+}
+
+Новый id должен быть на единицу больше максимального существующего id. Если массив пустой, первый id равен 1.
+
+5. Исходный массив bookings изменять нельзя.
+
+При ошибке возвращай:
+Ситуация ---> Сообщение
+Неизвестная комната	---> "Invalid room"
+Некорректное время	---> "Invalid time"
+Пересечение бронирований ---> "Room is already booked"
+
+Формат ошибки:
+{
+    success: false,
+    message: "Invalid time"
+}
+
+Важное уточнение: время окончания одного бронирования может совпадать со временем начала следующего. Например, интервалы 9–11 и 11–13 не пересекаются.*/
+console.log(addBooking(bookings, "A", 8, 9)); // Успех: время между двумя бронированиями A
+/*console.log(addBooking(bookings, "A", 11, 13)); // Успех: время между двумя бронированиями A
+console.log(addBooking(bookings, "A", 10, 12)); // Ошибка: пересечение с бронированием 9–11
+console.log(addBooking(bookings, "B", 12, 14)); // Успех: первое бронирование B заканчивается в 12
+console.log(addBooking(bookings, "D", 10, 12)); // Ошибка: Invalid room
+console.log(addBooking(bookings, "C", 15, 14)); // Ошибка: Invalid time*/
